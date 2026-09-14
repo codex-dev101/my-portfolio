@@ -2,87 +2,295 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Harrison Arinze</title>
-  <link rel="stylesheet" href="styles/portfolio.css">
-  <link rel="icon" href="images/icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio & Projects | Harrison Arinze</title>
+    <meta name="description"
+        content="Explore featured projects and technical skills built by Harrison Arinze, Frontend Web Developer.">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/portfolio.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="icon" href="images/icon.png">
 </head>
 
 <body>
-  <header class="site-header">
-    <a href="index.html" class="brand">HARRISON</a>
-    <nav class="site-nav">
-      <a href="index.html">Home</a>
-      <a href="resume.html">Resume</a>
-      <a href="mailto:ilokaharrisonarinze@gmail.com" class="email-link">Contact</a>
-    </nav>
-  </header>
 
-  <main class="page-wrapper">
-    <section class="hero-section">
-      <p class="eyebrow">Frontend Web Developer</p>
-      <h1>I turn ideas into digital experiences.</h1>
-      <p class="hero-copy">Hi, I’m Harrison Arinze, a Frontend Web Developer focused on building modern, responsive, and
-        user-friendly websites with clean code and creative design.</p>
-      <div class="hero-actions">
-        <a href="resume.html" class="button button-primary">View Resume</a>
-        <a href="mailto:ilokaharrisonarinze@gmail.com" class="button button-secondary email-link">Contact Me</a>
-      </div>
-    </section>
+    <!-- Unified Navigation Header -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                HARRISON <span>ARINZE</span>
+                <span class="brand-badge">DEV</span>
+            </a>
 
-    <section class="projects-section">
-      <div class="section-header">
-        <span>Portfolio</span>
-        <h2>Featured Projects</h2>
-      </div>
-      <div class="project-grid">
-        <article class="project-card">
-          <span class="project-tag">Simple Game App</span>
-          <h3>Number Guessing Game</h3>
-          <p>A fun and interactive game where players try to guess a randomly generated number within a limited
-            attempts.</p>
-          <a href="https://ilokaharrisonarinze.github.io/guess-my-number/" target="_blank" rel="noopener noreferrer"
-            class="project-link">View details &rarr;</a>
-        </article>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation" aria-expanded="false">
+                <i class="ri-menu-4-line" id="nav-icon"></i>
+            </button>
 
-        <article class="project-card">
-          <span class="project-tag">Todo App</span>
-          <h3>Task Manager</h3>
-          <p>A simple yet effective todo application with a clean interface and smooth user experience.</p>
-          <a href="https://ilokaharrisonarinze.github.io/todo-app/" target="_blank" rel="noopener noreferrer"
-            class="project-link">View details &rarr;</a>
-        </article>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="ri-home-5-line"></i> Home
+                </a>
+                <a href="portfolio.html" class="nav-link active">
+                    <i class="ri-folder-user-line"></i> Portfolio
+                </a>
+                <a href="resume.html" class="nav-link">
+                    <i class="ri-file-text-line"></i> Resume
+                </a>
+                <a href="mailto:codex.tronix@gmail.com" class="nav-link email-trigger">
+                    <i class="ri-mail-send-line"></i> Contact
+                </a>
+            </nav>
 
-        <article class="project-card">
-          <span class="project-tag">Weather App</span>
-          <h3>Weather Dashboard</h3>
-          <p>A responsive weather application that displays current conditions and forecasts for any location.</p>
-          <a href="https://ilokaharrisonarinze.github.io/myweather/" target="_blank" rel="noopener noreferrer"
-            class="project-link">View details &rarr;</a>
-        </article>
-      </div>
-    </section>
+            <div class="nav-actions">
+                <a href="mailto:codex.tronix@gmail.com" class="btn btn-primary btn-contact-nav email-trigger">
+                    <span>Let's Talk</span>
+                    <i class="ri-arrow-right-up-line"></i>
+                </a>
+            </div>
+        </div>
+    </header>
 
-    <section class="skills-section">
-      <div class="section-header">
-        <span>Skills</span>
-        <h2>What I work with</h2>
-      </div>
-      <div class="skill-list">
-        <span class="skill-pill">HTML</span>
-        <span class="skill-pill">CSS</span>
-        <span class="skill-pill">JavaScript</span>
-        <span class="skill-pill">Responsive Design</span>
-        <span class="skill-pill">UI Design</span>
-      </div>
-    </section>
-  </main>
+    <main class="container">
+        <!-- Portfolio Hero Intro -->
+        <section class="portfolio-hero">
+            <div class="portfolio-hero-content">
+                <span class="section-pill"><i class="ri-sparkling-fill"></i> Showcase</span>
+                <h1>Crafting Ideas Into <span class="text-gradient">Interactive Reality</span></h1>
+                <p>
+                    A collection of web applications and interactive projects demonstrating my focus on responsive UI,
+                    maintainable architecture, and clean code.
+                </p>
+            </div>
+        </section>
 
-  <footer class="page-footer">
-    <p>© 2026 Harrison Arinze — Portfolio.</p>
-  </footer>
-  <script src="js/script.js"></script>
+        <!-- Projects Showcase Section -->
+        <section class="projects-showcase">
+            <div class="section-header">
+                <span class="section-pill"><i class="ri-code-box-line"></i> Selected Work</span>
+                <h2 class="section-title">Featured <span class="text-gradient">Projects</span></h2>
+                <p class="section-desc">Click below to test the live applications or view their details.</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <article class="project-card">
+                    <div>
+                        <div class="project-top">
+                            <span class="project-badge">Interactive Game</span>
+                            <div class="project-icon">
+                                <i class="ri-gamepad-line"></i>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Number Guessing Game</h3>
+                        <p class="project-desc">
+                            A fun and fast-paced game where users test their logic against a randomly generated number
+                            with dynamic feedback, attempt limits, and score tracking.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-chip">JavaScript</span>
+                            <span class="tech-chip">DOM Manipulation</span>
+                            <span class="tech-chip">CSS3 Animations</span>
+                            <span class="tech-chip">Responsive UI</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://codex-dev101.github.io/guess-my-number/" target="_blank"
+                            rel="noopener noreferrer" class="project-btn project-btn-primary">
+                            <span>Live Demo</span>
+                            <i class="ri-external-link-line"></i>
+                        </a>
+                        <a href="https://github.com/codex-dev101/guess-my-number" target="_blank"
+                            rel="noopener noreferrer" class="project-btn project-btn-outline">
+                            <i class="ri-github-line"></i>
+                            <span>Source Code</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card">
+                    <div>
+                        <div class="project-top">
+                            <span class="project-badge">Productivity</span>
+                            <div class="project-icon">
+                                <i class="ri-checkbox-circle-line"></i>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Task Manager (Todo App)</h3>
+                        <p class="project-desc">
+                            A lightweight and distraction-free task management application that helps users organize
+                            daily goals with real-time updates and seamless usability.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-chip">JavaScript</span>
+                            <span class="tech-chip">State Handling</span>
+                            <span class="tech-chip">Clean UI</span>
+                            <span class="tech-chip">Mobile First</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://codex-dev101.github.io/todo-app/" target="_blank" rel="noopener noreferrer"
+                            class="project-btn project-btn-primary">
+                            <span>Live Demo</span>
+                            <i class="ri-external-link-line"></i>
+                        </a>
+                        <a href="https://github.com/codex-dev101/todo-app" target="_blank"
+                            rel="noopener noreferrer" class="project-btn project-btn-outline">
+                            <i class="ri-github-line"></i>
+                            <span>Source Code</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card">
+                    <div>
+                        <div class="project-top">
+                            <span class="project-badge">Weather App</span>
+                            <div class="project-icon">
+                                <i class="ri-sun-cloudy-line"></i>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Weather Dashboard</h3>
+                        <p class="project-desc">
+                            A sleek weather application fetching live meteorological metrics, forecast details, and
+                            temperature readings for cities worldwide.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-chip">REST API</span>
+                            <span class="tech-chip">Async / Await</span>
+                            <span class="tech-chip">JSON Parsing</span>
+                            <span class="tech-chip">Glassmorphism</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://codex-dev101.github.io/myweather/" target="_blank" rel="noopener noreferrer"
+                            class="project-btn project-btn-primary">
+                            <span>Live Demo</span>
+                            <i class="ri-external-link-line"></i>
+                        </a>
+                        <a href="https://github.com/codex-dev101/.weather" target="_blank"
+                            rel="noopener noreferrer" class="project-btn project-btn-outline">
+                            <i class="ri-github-line"></i>
+                            <span>Source Code</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Technical Skills Showcase -->
+        <section class="skills-showcase">
+            <div class="section-header">
+                <span class="section-pill"><i class="ri-stack-line"></i> Capabilities</span>
+                <h2 class="section-title">Technical <span class="text-gradient">Skills</span></h2>
+                <p class="section-desc">The core tools, languages, and methodologies I utilize across my workflow.</p>
+            </div>
+
+            <div class="skills-category-grid">
+                <!-- Frontend Core -->
+                <div class="skill-category-card">
+                    <div class="skill-category-header">
+                        <i class="ri-code-s-slash-fill"></i>
+                        <h3>Frontend Core</h3>
+                    </div>
+                    <div class="skill-pills-list">
+                        <span class="skill-pill-item"><i class="ri-html5-fill"></i> HTML5 Semantic</span>
+                        <span class="skill-pill-item"><i class="ri-css3-fill"></i> CSS3 & Flexbox</span>
+                        <span class="skill-pill-item"><i class="ri-layout-grid-line"></i> CSS Grid</span>
+                        <span class="skill-pill-item"><i class="ri-javascript-fill"></i> JavaScript (ES6+)</span>
+                        <span class="skill-pill-item"><i class="ri-device-line"></i> Responsive Layouts</span>
+                        <span class="skill-pill-item"><i class="ri-cursor-line"></i> DOM Manipulation</span>
+                    </div>
+                </div>
+
+                <!-- Tools & Workflows -->
+                <div class="skill-category-card">
+                    <div class="skill-category-header">
+                        <i class="ri-tools-fill"></i>
+                        <h3>Tools & Workflow</h3>
+                    </div>
+                    <div class="skill-pills-list">
+                        <span class="skill-pill-item"><i class="ri-git-branch-line"></i> Git Version Control</span>
+                        <span class="skill-pill-item"><i class="ri-github-fill"></i> GitHub Hosting</span>
+                        <span class="skill-pill-item"><i class="ri-terminal-box-line"></i> VS Code</span>
+                        <span class="skill-pill-item"><i class="ri-chrome-line"></i> Chrome DevTools</span>
+                        <span class="skill-pill-item"><i class="ri-speed-up-line"></i> Web Performance</span>
+                        <span class="skill-pill-item"><i class="ri-cloud-line"></i> FormSubmit API</span>
+                    </div>
+                </div>
+
+                <!-- Design & UI/UX -->
+                <div class="skill-category-card">
+                    <div class="skill-category-header">
+                        <i class="ri-palette-fill"></i>
+                        <h3>Design & Polish</h3>
+                    </div>
+                    <div class="skill-pills-list">
+                        <span class="skill-pill-item"><i class="ri-contrast-drop-2-line"></i> Glassmorphism</span>
+                        <span class="skill-pill-item"><i class="ri-magic-line"></i> Micro-Animations</span>
+                        <span class="skill-pill-item"><i class="ri-eye-line"></i> Visual Hierarchy</span>
+                        <span class="skill-pill-item"><i class="ri-accessibility-line"></i> Web Accessibility</span>
+                        <span class="skill-pill-item"><i class="ri-smartphone-line"></i> Mobile First UI</span>
+                        <span class="skill-pill-item"><i class="ri-font-size"></i> Modern Typography</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action Banner -->
+            <div class="cta-banner">
+                <h3>Want to collaborate on your next project?</h3>
+                <p>I'm always excited to explore new challenges and build intuitive user experiences.</p>
+                <div class="btn-group" style="justify-content: center;">
+                    <a href="mailto:codex.tronix@gmail.com" class="btn btn-primary email-trigger">
+                        <i class="ri-mail-send-fill"></i>
+                        <span>Start a Conversation</span>
+                    </a>
+                    <a href="resume.html" class="btn btn-secondary">
+                        <i class="ri-file-text-line"></i>
+                        <span>View Resume</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Unified Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <a href="index.html" class="brand-logo">
+                    HARRISON <span>ARINZE</span>
+                </a>
+
+                <div class="footer-socials">
+                    <a href="mailto:codex.tronix@gmail.com" title="Email Direct" class="social-btn email-trigger">
+                        <i class="ri-mail-line"></i>
+                    </a>
+                    <a href="https://github.com/codex-dev101" title="GitHub" target="_blank" rel="noopener noreferrer"
+                        class="social-btn">
+                        <i class="ri-github-line"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/web-plum-29834b421?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                        title="LinkedIn" target="_blank" rel="noopener noreferrer" class="social-btn">
+                        <i class="ri-linkedin-line"></i>
+                    </a>
+                    <a href="https://tiktok.com/@codewithme8" title="TikTok" target="_blank" rel="noopener noreferrer"
+                        class="social-btn">
+                        <i class="ri-tiktok-line"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Harrison Arinze. All rights reserved.</p>
+                <p>Designed & Built with <span style="color: #f43f5e;">HTML</span> and modern CSS.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>

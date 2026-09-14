@@ -4,182 +4,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harrison | Portfolio</title>
-    <link rel="stylesheet" href="styles/style.css" type="text/css" media="all">
+    <title>CODEX | Frontend Web Developer</title>
+    <meta name="description"
+        content="Portfolio of Harrison Arinze - Frontend Web Developer building modern, responsive, and user-friendly web applications.">
+    <link rel="stylesheet" href="styles/style.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="icon" href="images/icon.png">
 </head>
 
 <body>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">
-                    HARRISON
+    <!-- Unified Navigation Header -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                HARRISON <span>ARINZE</span>
+                <span class="brand-badge">DEV</span>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation" aria-expanded="false">
+                <i class="ri-menu-4-line" id="nav-icon"></i>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link active">
+                    <i class="ri-home-5-line"></i> Home
+                </a>
+                <a href="portfolio.html" class="nav-link">
+                    <i class="ri-folder-user-line"></i> Portfolio
+                </a>
+                <a href="resume.html" class="nav-link">
+                    <i class="ri-file-text-line"></i> Resume
+                </a>
+                <a href="mailto:codex.tronix@gmail.com" class="nav-link email-trigger">
+                    <i class="ri-mail-send-line"></i> Contact
+                </a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="mailto:codex.tronix@gmail.com" class="btn btn-primary btn-contact-nav email-trigger">
+                    <span>Let's Talk</span>
+                    <i class="ri-arrow-right-up-line"></i>
                 </a>
             </div>
-            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation">
-                <i class="ri-menu-line"></i>
-            </button>
-            <ul class="nav-links" id="nav-links">
-                <li>
-                    <a href="index.html" class="active">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="resume.html">
-                        Resume
-                    </a>
-                </li>
-                <li>
-                    <a href="portfolio.html">
-                        Portfolio
-                    </a>
-                </li>
-                <li>
-                    <a href="mailto:ilokaharrisonarinze@gmail.com" class="email-link">
-                        Contact
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        </div>
     </header>
 
-    <section class="hero">
-        <div class="overlay"></div>
-        <div class="hero-content">
-            <h2>Hello I'm</h2>
-            <h1>HARRISON <br> ARINZE</h1>
-            <p>
-                Frontend Web Developer
-            </p>
-            <div class="hero-buttons">
-                <a href="resume.html" class="btn">
-                    Resume
-                </a>
-                <a href="portfolio.html" class="btn btn-outline">
-                    Portfolio
-                </a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="images/profile.png" alt="Harrison Arinze">
-        </div>
-        <div class="fullscreen">
-            <i class="ri-fullscreen-line"></i>
-        </div>
-    </section>
-
-    <section class="about" id="about">
-
-        <div class="about-container">
-
-            <div class="about-image">
-
-                <img src="images/hero.png" alt="Harrison Arinze">
-
-            </div>
-
-            <div class="about-content">
-
-                <span class="section-subtitle">
-                    ABOUT ME
-                </span>
-
-                <h2>
-                    I'm a passionate
-                    <span>Web Developer</span>
-                </h2>
-
-                <p>
-                    I am a passionate web developer who enjoys
-                    creating modern, responsive and user-friendly
-                    websites. I love turning ideas into beautiful
-                    digital experiences through clean and efficient
-                    code.
-                </p>
-
-                <p>
-                    My goal is to continue learning, improving my
-                    skills and building websites that are both
-                    visually appealing and easy to use.
-                </p>
-
-                <div class="about-info">
-
-                    <div class="info-item">
-
-                        <span>Name:</span>
-
-                        <p>
-                            Harrison Arinze
-                        </p>
-
-                    </div>
-                    <div class="info-item">
-
-                        <span>Location:</span>
-
-                        <p>
-                            Abuja, Nigeria
-                        </p>
-
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        <span>Available for new opportunities</span>
                     </div>
 
+                    <h1 class="hero-title">
+                        <span class="greeting">Hello, I'm Harrison</span>
+                        Building Modern <br>
+                        <span class="text-gradient">Digital Experiences</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        I am a passionate <strong>Frontend Web Developer</strong> crafting sleek, responsive, and
+                        high-performance websites with clean code and intuitive user interfaces.
+                    </p>
+
+                    <div class="btn-group">
+                        <a href="portfolio.html" class="btn btn-primary">
+                            <span>View My Work</span>
+                            <i class="ri-arrow-right-line btn-icon"></i>
+                        </a>
+                        <a href="resume.html" class="btn btn-secondary">
+                            <i class="ri-file-user-line"></i>
+                            <span>Resume</span>
+                        </a>
+                        <a href="mailto:codex.tronix@gmail.com" class="btn btn-secondary email-trigger">
+                            <i class="ri-chat-3-line"></i>
+                            <span>Get in Touch</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-tags">
+                        <span class="hero-tag"><i class="ri-html5-fill"></i> HTML5</span>
+                        <span class="hero-tag"><i class="ri-css3-fill"></i> CSS3</span>
+                        <span class="hero-tag"><i class="ri-javascript-fill"></i> JavaScript</span>
+                        <span class="hero-tag"><i class="ri-smartphone-line"></i> Responsive UI</span>
+                        <span class="hero-tag"><i class="ri-git-branch-line"></i> Git & GitHub</span>
+                    </div>
                 </div>
 
-                <a href="mailto:ilokaharrisonarinze@gmail.com" class="about-btn email-link">
-                    Contact Me
-                </a>
+                <div class="hero-visual">
+                    <div class="hero-avatar-wrapper">
+                        <div class="hero-glow-bg"></div>
+                        <div class="hero-avatar-card fullscreen-trigger" title="Click to view full photo">
+                            <img src="images/profile.png" alt="Harrison Arinze">
+                        </div>
 
+                        <!-- Floating Badges -->
+                        <div class="floating-pill pill-1">
+                            <i class="ri-code-s-slash-line"></i>
+                            <div class="floating-pill-text">
+                                <strong>Frontend Dev</strong>
+                                <span>Modern UI / UX</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-pill pill-2">
+                            <i class="ri-flashlight-line"></i>
+                            <div class="floating-pill-text">
+                                <strong>Clean Code</strong>
+                                <span>Fast & Responsive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-        </div>
+        <!-- About Me Section (Bento Layout) -->
+        <section class="section about-section" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-pill"><i class="ri-user-smile-line"></i> About Me</span>
+                    <h2 class="section-title">Driven by passion, defined by <span class="text-gradient">quality</span>
+                    </h2>
+                    <p class="section-desc">Get to know more about my background, mindset, and what fuels my development
+                        workflow.</p>
+                </div>
 
-    </section>
+                <div class="bento-grid">
+                    <!-- Bento Main Narrative Card -->
+                    <div class="bento-card bento-main">
+                        <div>
+                            <span class="section-pill"><i class="ri-sparkling-fill"></i> Background</span>
+                            <h3>Turning ideas into polished, engaging digital reality.</h3>
+                            <p>
+                                I am an enthusiastic web developer who loves bridging the gap between design and
+                                functionality. I specialize in building responsive web applications that look great on
+                                any screen size and deliver seamless user experiences.
+                            </p>
+                            <p>
+                                Constant learning and continuous improvement are at the core of what I do. Whether
+                                building interactive tools, web apps, or custom landing pages, I write clean,
+                                maintainable, and modular code.
+                            </p>
+                        </div>
 
+                        <div class="bento-stats">
+                            <div class="stat-item">
+                                <div class="stat-number text-gradient">2+</div>
+                                <div class="stat-label">Years Learning & Building</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number text-gradient">10+</div>
+                                <div class="stat-label">Projects Completed</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number text-gradient">100%</div>
+                                <div class="stat-label">Commitment to Quality</div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- Bento Side Info & Visual Cards -->
+                    <div class="bento-side-grid">
+                        <div class="info-cards-row">
+                            <div class="mini-card">
+                                <div class="mini-icon">
+                                    <i class="ri-map-pin-user-line"></i>
+                                </div>
+                                <div class="mini-info">
+                                    <span>Location</span>
+                                    <strong>Abuja, Nigeria</strong>
+                                </div>
+                            </div>
 
+                            <div class="mini-card">
+                                <div class="mini-icon">
+                                    <i class="ri-layout-masonry-line"></i>
+                                </div>
+                                <div class="mini-info">
+                                    <span>Core Focus</span>
+                                    <strong>Frontend & UI</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bento-image-card fullscreen-trigger" title="Click to view photo">
+                            <img src="images/hero.png" alt="Harrison Arinze Workspace">
+                            <div class="bento-image-overlay">
+                                <div>
+                                    <span class="preview-tag">Developer Profile</span>
+                                    <h4>Harrison Arinze</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Preview Section -->
+        <section class="section" id="featured-work">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-pill"><i class="ri-apps-2-line"></i> Featured Work</span>
+                    <h2 class="section-title">Selected <span class="text-gradient">Projects</span></h2>
+                    <p class="section-desc">A quick glimpse of some recent interactive web applications I've created.
+                    </p>
+                </div>
+
+                <div class="showcase-preview-grid">
+                    <article class="preview-card">
+                        <div>
+                            <span class="preview-tag">Interactive Game</span>
+                            <h4>Number Guessing Game</h4>
+                            <p>A fun and engaging web game featuring score tracking, dynamic hints, high score
+                                persistence, and responsive UI.</p>
+                        </div>
+                        <a href="https://codex-dev101.github.io/guess-my-number/" target="_blank"
+                            rel="noopener noreferrer" class="preview-card-link">
+                            <span>Live Demo</span>
+                            <i class="ri-external-link-line"></i>
+                        </a>
+                    </article>
+
+                    <article class="preview-card">
+                        <div>
+                            <span class="preview-tag">Productivity App</span>
+                            <h4>Task Manager (Todo App)</h4>
+                            <p>A clean and intuitive task management application with real-time status updates,
+                                filtering, and local persistence.</p>
+                        </div>
+                        <a href="https://codex-dev101.github.io/todo-app/" target="_blank" rel="noopener noreferrer"
+                            class="preview-card-link">
+                            <span>Live Demo</span>
+                            <i class="ri-external-link-line"></i>
+                        </a>
+                    </article>
+
+                    <article class="preview-card">
+                        <div>
+                            <span class="preview-tag">Weather Utility</span>
+                            <h4>Weather Dashboard</h4>
+                            <p>A responsive weather application fetching real-time meteorological metrics, condition
+                                forecasts, and city searches.</p>
+                        </div>
+                        <a href="https://codex-dev101.github.io/myweather/" target="_blank" rel="noopener noreferrer"
+                            class="preview-card-link">
+                            <span>Live Demo</span>
+                            <i class="ri-external-link-line"></i>
+                        </a>
+                    </article>
+                </div>
+
+                <!-- Call to Action Banner -->
+                <div class="cta-banner">
+                    <h3>Have a project in mind or looking to hire?</h3>
+                    <p>I'm currently available for freelance opportunities and full-time frontend roles. Let's create
+                        something extraordinary together.</p>
+                    <div class="btn-group" style="justify-content: center;">
+                        <a href="mailto:codex.tronix@gmail.com" class="btn btn-primary email-trigger">
+                            <i class="ri-mail-send-fill"></i>
+                            <span>Send Me a Message</span>
+                        </a>
+                        <a href="portfolio.html" class="btn btn-secondary">
+                            <span>Explore Full Portfolio</span>
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Unified Footer -->
     <footer class="footer">
-
-        <div class="footer-container">
-
-            <div class="footer-logo">
-                <a href="index.html">
-                    ARINZE
+        <div class="container">
+            <div class="footer-top">
+                <a href="index.html" class="brand-logo">
+                    HARRISON <span>ARINZE</span>
                 </a>
+
+                <div class="footer-socials">
+                    <a href="mailto:codex.tronix@gmail.com" title="Email Direct" class="social-btn email-trigger">
+                        <i class="ri-mail-line"></i>
+                    </a>
+                    <a href="https://github.com/codex-dev101" title="GitHub" target="_blank" rel="noopener noreferrer"
+                        class="social-btn">
+                        <i class="ri-github-line"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/web-plum-29834b421?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                        title="LinkedIn" target="_blank" rel="noopener noreferrer" class="social-btn">
+                        <i class="ri-linkedin-line"></i>
+                    </a>
+                    <a href="https://tiktok.com/@codewithme8" title="TikTok" target="_blank" rel="noopener noreferrer"
+                        class="social-btn">
+                        <i class="ri-tiktok-line"></i>
+                    </a>
+                </div>
             </div>
 
-            <p>
-                © 2026 Harrison Arinze.
-                All Rights Reserved.
-            </p>
-
-            <div class="footer-socials">
-
-                <a href="mailto:ilokaharrisonarinze@gmail.com" title="Gmail" class="email-link">
-                    <i class="ri-mail-fill"></i>
-                </a>
-
-                <a href="https://github.com/ilokaharrisonarinze" title="GitHub" target="_blank" rel="noopener noreferrer">
-                    <i class="ri-github-fill"></i>
-                </a>
-
-                <a href="https://www.linkedin.com/in/web-plum-29834b421?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-                    title="LinkedIn" target="_blank" rel="noopener noreferrer">
-                    <i class="ri-linkedin-fill"></i>
-                </a>
-
-                <a href="https://tiktok.com/@codewithme8" title="TikTok" target="_blank" rel="noopener noreferrer">
-                    <i class="ri-tiktok-fill"></i>
-                </a>
-
+            <div class="footer-bottom">
+                <p>&copy; 2026 Harrison Arinze. All rights reserved.</p>
+                <p>Designed & Built with <span style="color: #f43f5e;">HTML</span> and modern CSS.</p>
             </div>
-
         </div>
-
     </footer>
 
     <script src="js/script.js"></script>

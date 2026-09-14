@@ -2,131 +2,334 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Harrison Arinze | Resume</title>
-  <link rel="stylesheet" href="styles/resume.css">
-  <link rel="icon" href="images/icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harrison Arinze | Resume</title>
+    <meta name="description"
+        content="Resume of Harrison Arinze - Frontend Web Developer experience, education, and technical skill set.">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/resume.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="icon" href="images/icon.png">
 </head>
 
 <body>
-  <header class="site-header">
-    <a href="index.html" class="brand">HARRISON</a>
-    <nav class="site-nav">
-      <a href="index.html">Home</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="mailto:ilokaharrisonarinze@gmail.com" class="email-link">Contact</a>
-    </nav>
-  </header>
-  <div class="resume-shell">
-    <header class="resume-header">
-      <div>
-        <p class="eyebrow">Frontend Web Developer</p>
-        <h1>Harrison Arinze</h1>
-        <p class="subheading">Building modern, responsive websites with clean code and polished UI.</p>
-      </div>
-      <div class="contact-block">
-        <p><strong>Email</strong><br><a href="mailto:ilokaharrisonarinze@gmail.com"
-            class="email-link">ilokaharrisonarinze@gmail.com</a></p>
-        <p><strong>Location</strong><br>Abuja, Nigeria</p>
-        <p><strong>Portfolio</strong><br><a href="index.html">arinze.dev</a></p>
-      </div>
+
+    <!-- Unified Navigation Header -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                HARRISON <span>ARINZE</span>
+                <span class="brand-badge">DEV</span>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation" aria-expanded="false">
+                <i class="ri-menu-4-line" id="nav-icon"></i>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="ri-home-5-line"></i> Home
+                </a>
+                <a href="portfolio.html" class="nav-link">
+                    <i class="ri-folder-user-line"></i> Portfolio
+                </a>
+                <a href="resume.html" class="nav-link active">
+                    <i class="ri-file-text-line"></i> Resume
+                </a>
+                <a href="mailto:codex.tronix@gmail.com" class="nav-link email-trigger">
+                    <i class="ri-mail-send-line"></i> Contact
+                </a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="mailto:codex.tronix@gmail.com" class="btn btn-primary btn-contact-nav email-trigger">
+                    <span>Let's Talk</span>
+                    <i class="ri-arrow-right-up-line"></i>
+                </a>
+            </div>
+        </div>
     </header>
 
-    <section class="resume-section summary-section">
-      <h2>Professional Summary</h2>
-      <p>Experienced Frontend Web Developer with a strong focus on responsive design, performance, and accessibility.
-        Skilled in HTML, CSS, JavaScript, and modern frontend workflows. Passionate about turning ideas into elegant
-        digital experiences.</p>
-    </section>
+    <main class="container resume-wrapper">
+        <!-- Resume Hero Card -->
+        <div class="resume-hero-card">
+            <div class="resume-header-top">
+                <div class="resume-name-block">
+                    <span class="section-pill"><i class="ri-file-user-line"></i> Curriculum Vitae</span>
+                    <h1>Harrison Arinze</h1>
+                    <p class="resume-title">Frontend Web Developer</p>
+                </div>
 
-    <section class="resume-section skills-section">
-      <div class="section-heading">
-        <h2>Technical Skills</h2>
-      </div>
-      <div class="skill-grid">
-        <span>HTML5</span>
-        <span>CSS3</span>
-        <span>JavaScript</span>
-        <span>Responsive Design</span>
-        <span>Git</span>
-        <span>UI/UX Design</span>
-        <span>Accessibility</span>
-        <span>Web Performance</span>
-      </div>
-    </section>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="window.print()" title="Print or Save as PDF">
+                        <i class="ri-printer-line"></i>
+                        <span>Print / Save PDF</span>
+                    </button>
+                    <a href="mailto:codex.tronix@gmail.com" class="btn btn-secondary email-trigger">
+                        <i class="ri-mail-send-line"></i>
+                        <span>Hire Me</span>
+                    </a>
+                </div>
+            </div>
 
-    <section class="resume-section experience-section">
-      <div class="section-heading">
-        <h2>Experience</h2>
-      </div>
+            <div class="resume-contacts-grid">
+                <a href="mailto:codex.tronix@gmail.com" class="contact-pill email-trigger">
+                    <i class="ri-mail-fill"></i>
+                    <span>codex.tronix@gmail.com</span>
+                </a>
+                <div class="contact-pill">
+                    <i class="ri-map-pin-2-fill"></i>
+                    <span>Abuja, Nigeria</span>
+                </div>
+                <a href="https://github.com/codex-dev101" target="_blank" rel="noopener noreferrer"
+                    class="contact-pill">
+                    <i class="ri-github-fill"></i>
+                    <span>GitHub Profile</span>
+                </a>
+                <a href="https://www.linkedin.com/in/web-plum-29834b421?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                    target="_blank" rel="noopener noreferrer" class="contact-pill">
+                    <i class="ri-linkedin-fill"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
 
-      <article class="experience-card">
-        <div class="experience-meta">
-          <h3>Frontend Web Developer</h3>
-          <span>Freelance / Personal Projects</span>
+            <p class="resume-summary-text">
+                Dedicated <strong>Frontend Web Developer</strong> with a solid foundation in modern semantic HTML,
+                responsive CSS architecture, and interactive JavaScript. Passionate about designing pixel-perfect user
+                interfaces, optimizing web performance, and delivering frictionless user experiences across mobile and
+                desktop devices.
+            </p>
         </div>
-        <div class="experience-date">2024 — Present</div>
-        <p>Designed and developed responsive front-end applications using HTML, CSS, and JavaScript. Delivered
-          user-friendly interfaces and interactive components for portfolio projects, games, and productivity tools.</p>
-        <ul>
-          <li>Built a number guessing game, todo app, and weather dashboard with modern responsive layouts.</li>
-          <li>Optimized page performance and maintainable CSS structure for reusable card components.</li>
-          <li>Maintained consistent visual design across desktop and mobile viewports.</li>
-        </ul>
-      </article>
 
-      <article class="experience-card">
-        <div class="experience-meta">
-          <h3>Web Development Intern</h3>
-          <span>Online Learning Projects</span>
+        <!-- Experience Section -->
+        <section class="resume-section-card">
+            <h2 class="resume-section-title">
+                <i class="ri-briefcase-4-line"></i> Experience
+            </h2>
+
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Frontend Web Developer</h3>
+                                <p class="timeline-company">Independent Projects & Freelance</p>
+                            </div>
+                            <span class="timeline-date">2024 — Present</span>
+                        </div>
+                        <p class="timeline-desc">
+                            Designed, engineered, and deployed responsive web interfaces and interactive single-page
+                            tools using clean, modular frontend code.
+                        </p>
+                        <ul class="timeline-bullets">
+                            <li>Architected and built web applications including Number Guessing Game, Task Manager, and
+                                Weather Dashboard.</li>
+                            <li>Implemented fluid responsive design systems utilizing CSS Grid, Flexbox, and
+                                mobile-first media queries.</li>
+                            <li>Integrated asynchronous API services and DOM manipulation for real-time data
+                                visualization.</li>
+                            <li>Optimized assets and CSS rules to achieve fast load times and clean cross-browser
+                                rendering.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Web Development Intern & Practice</h3>
+                                <p class="timeline-company">Online Learning Projects & Open Source</p>
+                            </div>
+                            <span class="timeline-date">2023 — 2024</span>
+                        </div>
+                        <p class="timeline-desc">
+                            Collaborated on frontend development exercises, component building, and website mockups.
+                        </p>
+                        <ul class="timeline-bullets">
+                            <li>Built landing pages and UI components adhering to modern layout standards and
+                                accessibility best practices.</li>
+                            <li>Authored reusable CSS styling sheets, structured semantic markup, and dynamic
+                                interactive scripts.</li>
+                            <li>Maintained version control workflows with Git and deployed live previews via GitHub
+                                Pages.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section class="resume-section-card">
+            <h2 class="resume-section-title">
+                <i class="ri-code-box-line"></i> Technical Skills
+            </h2>
+
+            <div class="resume-skills-grid">
+                <div class="resume-skill-item">
+                    <i class="ri-html5-fill"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="resume-skill-item">
+                    <i class="ri-css3-fill"></i>
+                    <span>CSS3</span>
+                </div>
+                <div class="resume-skill-item">
+                    <i class="ri-javascript-fill"></i>
+                    <span>JavaScript (ES6+)</span>
+                </div>
+                <div class="resume-skill-item">
+                    <i class="ri-smartphone-line"></i>
+                    <span>Responsive UI</span>
+                </div>
+                <div class="resume-skill-item">
+                    <i class="ri-layout-grid-line"></i>
+                    <span>Flexbox & Grid</span>
+                </div>
+                <div class="resume-skill-item">
+                    <i class="ri-git-branch-line"></i>
+                    <span>Git & GitHub</span>
+                </div>
+                <div class="resume-skill-item">
+                    <i class="ri-terminal-box-line"></i>
+                    <span>VS Code</span>
+                </div>
+                <div class="resume-skill-item">
+                    <i class="ri-palette-line"></i>
+                    <span>UI/UX Design</span>
+                </div>
+                <div class="resume-skill-item">
+                    <i class="ri-cloud-line"></i>
+                    <span>REST APIs</span>
+                </div>
+                <div class="resume-skill-item">
+                    <i class="ri-speed-up-line"></i>
+                    <span>Performance</span>
+                </div>
+                <div class="resume-skill-item">
+                    <i class="ri-contrast-drop-2-line"></i>
+                    <span>Glassmorphism</span>
+                </div>
+                <div class="resume-skill-item">
+                    <i class="ri-accessibility-line"></i>
+                    <span>Accessibility</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="resume-section-card">
+            <h2 class="resume-section-title">
+                <i class="ri-graduation-cap-line"></i> Education & Continuous Learning
+            </h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Self-Taught & Continuous Frontend Specialization</h3>
+                                <p class="timeline-company">Web Development & Interactive Design</p>
+                            </div>
+                            <span class="timeline-date">2022 — Present</span>
+                        </div>
+                        <p class="timeline-desc">
+                            Focused on comprehensive frontend engineering, modern JavaScript concepts, UI/UX best
+                            practices, and responsive design systems through hands-on project creation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Projects Summary -->
+        <section class="resume-section-card">
+            <h2 class="resume-section-title">
+                <i class="ri-folder-open-line"></i> Selected Projects
+            </h2>
+
+            <div class="resume-projects-grid">
+                <article class="resume-project-card">
+                    <div>
+                        <h4>Number Guessing Game</h4>
+                        <p>Interactive web game with dynamic validation, attempt counts, and score tracking.</p>
+                    </div>
+                    <a href="https://codex-dev101.github.io/guess-my-number/" target="_blank" rel="noopener noreferrer"
+                        class="resume-project-link">
+                        <span>View Project</span>
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+                </article>
+
+                <article class="resume-project-card">
+                    <div>
+                        <h4>Task Manager</h4>
+                        <p>Productivity application with intuitive task status management and clean interface.</p>
+                    </div>
+                    <a href="https://codex-dev101.github.io/todo-app/" target="_blank" rel="noopener noreferrer"
+                        class="resume-project-link">
+                        <span>View Project</span>
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+                </article>
+
+                <article class="resume-project-card">
+                    <div>
+                        <h4>Weather Dashboard</h4>
+                        <p>Real-time meteorological forecast web app with city search and metrics visualizer.</p>
+                    </div>
+                    <a href="https://codex-dev101.github.io/myweather/" target="_blank" rel="noopener noreferrer"
+                        class="resume-project-link">
+                        <span>View Project</span>
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Unified Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <a href="index.html" class="brand-logo">
+                    HARRISON <span>ARINZE</span>
+                </a>
+
+                <div class="footer-socials">
+                    <a href="mailto:codex.tronix@gmail.com" title="Email Direct"
+                        class="social-btn email-trigger">
+                        <i class="ri-mail-line"></i>
+                    </a>
+                    <a href="https://github.com/codex-dev101" title="GitHub" target="_blank" rel="noopener noreferrer"
+                        class="social-btn">
+                        <i class="ri-github-line"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/web-plum-29834b421?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                        title="LinkedIn" target="_blank" rel="noopener noreferrer" class="social-btn">
+                        <i class="ri-linkedin-line"></i>
+                    </a>
+                    <a href="https://tiktok.com/@codewithme8" title="TikTok" target="_blank" rel="noopener noreferrer"
+                        class="social-btn">
+                        <i class="ri-tiktok-line"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Harrison Arinze. All rights reserved.</p>
+                <p>Designed & Built with <span style="color: #f43f5e;">HTML</span> and modern CSS.</p>
+            </div>
         </div>
-        <div class="experience-date">2023 — 2024</div>
-        <p>Collaborated on front-end web solutions for small business websites and learning projects. Focused on
-          accessible interface structure, layout flexibility, and polished interactions.</p>
-        <ul>
-          <li>Created landing pages with grid and flexbox layouts to support varied content sections.</li>
-          <li>Implemented responsive navigation, cards, and call-to-action components.</li>
-          <li>Used version control workflows and iterative improvements based on feedback.</li>
-        </ul>
-      </article>
-    </section>
+    </footer>
 
-    <section class="resume-section education-section">
-      <div class="section-heading">
-        <h2>Education</h2>
-      </div>
-      <div class="education-card">
-        <div>
-          <h3>Self-taught Web Developer</h3>
-          <p>Focused on frontend development, responsive design, and real-world project builds.</p>
-        </div>
-        <div class="education-date">2022 — Present</div>
-      </div>
-    </section>
-
-    <section class="resume-section projects-section">
-      <div class="section-heading">
-        <h2>Selected Projects</h2>
-      </div>
-      <div class="project-list">
-        <article>
-          <h3>Number Guessing Game</h3>
-          <p>Interactive game built with JavaScript, featuring user input validation, score tracking, and responsive UI.
-          </p>
-        </article>
-        <article>
-          <h3>Task Manager</h3>
-          <p>Todo app with a clean interface for adding, completing, and managing tasks on desktop and mobile.</p>
-        </article>
-        <article>
-          <h3>Weather Dashboard</h3>
-          <p>Weather app showing current conditions and forecasts with city search and visual clarity.</p>
-        </article>
-      </div>
-    </section>
-  </div>
-  <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

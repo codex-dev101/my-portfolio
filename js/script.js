@@ -1,47 +1,88 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. CONSTANTS & UTILS
-    const EMAIL = 'ilokaharrisonarinze@gmail.com';
+    // 1. CONSTANTS & CONFIGURATION
+    const EMAIL = 'codex.tronix@gmail.com';
 
     const escapeHtml = (str) => {
-        return (str || '').replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        return (str || '')
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
     };
 
-    // 2. MOBILE NAVIGATION TOGGLE
-    const navToggle = document.getElementById('nav-toggle');
-    const navLinks = document.getElementById('nav-links');
+    // 2. NAVBAR SCROLL EFFECT
+    const header = document.getElementById('header');
+    const handleScroll = () => {
+        if (window.scrollY > 20) {
+            header?.classList.add('scrolled');
+        } else {
+            header?.classList.remove('scrolled');
+        }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 
-    if (navToggle && navLinks) {
+    // 3. MOBILE NAVIGATION DRAWER
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navIcon = document.getElementById('nav-icon');
+
+    const openMenu = () => {
+        navMenu?.classList.add('active');
+        navToggle?.setAttribute('aria-expanded', 'true');
+        if (navIcon) {
+            navIcon.className = 'ri-close-line';
+        }
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeMenu = () => {
+        navMenu?.classList.remove('active');
+        navToggle?.setAttribute('aria-expanded', 'false');
+        if (navIcon) {
+            navIcon.className = 'ri-menu-4-line';
+        }
+        document.body.style.overflow = '';
+    };
+
+    if (navToggle && navMenu) {
         navToggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            navLinks.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
-                navLinks.classList.remove('active');
-                navToggle.classList.remove('active');
+            if (navMenu.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
             }
         });
 
-        navLinks.querySelectorAll('a').forEach(link => {
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
+        // Close on link click
+        navMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                navToggle.classList.remove('active');
+                closeMenu();
             });
         });
     }
 
-    // 3. HIGHLIGHT ACTIVE NAV LINK
+    // 4. HIGHLIGHT ACTIVE NAV LINK
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav-links a, .site-nav a').forEach(link => {
+    document.querySelectorAll('.nav-link').forEach(link => {
         const href = link.getAttribute('href');
         if (href === currentPath || (currentPath === '' && href === 'index.html')) {
             link.classList.add('active');
+        } else if (!link.classList.contains('email-trigger')) {
+            link.classList.remove('active');
         }
     });
 
-    // 4. CREATE CLEAN CONTACT FORM MODAL & TOAST DOM ELEMENTS
+    // 5. INJECT CONTACT MODAL & TOAST DOM
     const createModalAndToast = () => {
         if (document.getElementById('contact-modal')) return;
 
@@ -49,25 +90,27 @@ document.addEventListener('DOMContentLoaded', () => {
         const toast = document.createElement('div');
         toast.id = 'portfolio-toast';
         toast.className = 'portfolio-toast';
-        toast.innerHTML = `<span id="toast-message">Notification</span>`;
+        toast.innerHTML = `<i class="ri-checkbox-circle-fill"></i> <span id="toast-message">Notification</span>`;
 
-        // Contact Modal (Form Only)
+        // Contact Modal
         const modal = document.createElement('div');
         modal.id = 'contact-modal';
         modal.className = 'contact-modal-overlay';
         modal.innerHTML = `
-            <div class="contact-modal-card">
-                <button class="modal-close-btn" id="modal-close" aria-label="Close Modal">&times;</button>
+            <div class="contact-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+                <button class="modal-close-btn" id="modal-close" aria-label="Close Modal">
+                    <i class="ri-close-line"></i>
+                </button>
                 <div class="modal-header">
                     <div class="modal-icon"><i class="ri-mail-send-fill"></i></div>
-                    <h3>Send Me a Message</h3>
-                    <p>Fill out the form below and your message will be sent directly to my Gmail inbox.</p>
+                    <h3 id="modal-heading">Get in Touch</h3>
+                    <p>Send a message directly to Harrison's inbox. I'll get back to you as soon as possible.</p>
                 </div>
 
                 <form class="quick-message-form" id="quick-message-form">
                     <div class="input-group">
                         <label for="msg-name">Your Name</label>
-                        <input type="text" id="msg-name" placeholder="Enter your name" required>
+                        <input type="text" id="msg-name" placeholder="Harrison Developer" required>
                     </div>
                     <div class="input-group">
                         <label for="msg-email">Your Email</label>
@@ -75,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="input-group">
                         <label for="msg-text">Your Message</label>
-                        <textarea id="msg-text" rows="4" placeholder="Write your message here..." required></textarea>
+                        <textarea id="msg-text" rows="4" placeholder="Tell me about your project or inquiry..." required></textarea>
                     </div>
                     <button type="submit" class="send-msg-btn">
                         <i class="ri-send-plane-fill"></i> Send Message
@@ -96,22 +139,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             .spin-icon {
                 display: inline-block;
-                animation: spin 1s linear infinite;
+                animation: spin 0.9s linear infinite;
             }
 
-            /* Toast Styling */
+            /* Toast */
             .portfolio-toast {
                 position: fixed;
-                bottom: 30px;
-                right: 30px;
-                background: #0f172a;
+                bottom: 24px;
+                right: 24px;
+                background: #0d1222;
                 color: #38bdf8;
                 border: 1px solid rgba(56, 189, 248, 0.3);
-                padding: 12px 24px;
-                border-radius: 12px;
-                font-size: 14px;
+                padding: 12px 20px;
+                border-radius: 14px;
+                font-size: 0.9rem;
                 font-weight: 500;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.6);
                 z-index: 10000;
                 opacity: 0;
                 transform: translateY(20px);
@@ -130,9 +173,9 @@ document.addEventListener('DOMContentLoaded', () => {
             .contact-modal-overlay {
                 position: fixed;
                 inset: 0;
-                background: rgba(0, 0, 0, 0.78);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
+                background: rgba(4, 7, 15, 0.82);
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
                 z-index: 9999;
                 display: flex;
                 align-items: center;
@@ -149,18 +192,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             /* Modal Card */
             .contact-modal-card {
-                background: linear-gradient(145deg, #0f172a, #1e293b);
+                background: linear-gradient(145deg, #0d1222, #141b34);
                 border: 1px solid rgba(255, 255, 255, 0.12);
-                border-radius: 20px;
+                border-radius: 24px;
                 width: 100%;
-                max-width: 440px;
-                padding: 32px 26px;
+                max-width: 450px;
+                padding: 34px 28px;
                 position: relative;
-                box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+                box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85);
                 transform: scale(0.92);
                 transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
                 color: #fff;
-                font-family: 'Poppins', sans-serif;
             }
             .contact-modal-overlay.active .contact-modal-card {
                 transform: scale(1);
@@ -168,18 +210,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
             .modal-close-btn {
                 position: absolute;
-                top: 15px;
+                top: 18px;
                 right: 18px;
-                background: transparent;
-                border: none;
-                color: rgba(255,255,255,0.6);
-                font-size: 28px;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                color: rgba(255,255,255,0.7);
+                font-size: 20px;
                 cursor: pointer;
-                line-height: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 transition: 0.2s;
             }
             .modal-close-btn:hover {
                 color: #fff;
+                background: rgba(255, 255, 255, 0.15);
+                border-color: #fff;
             }
 
             .modal-header {
@@ -187,18 +236,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 margin-bottom: 22px;
             }
             .modal-icon {
-                font-size: 36px;
-                color: #38bdf8;
-                margin-bottom: 6px;
+                width: 52px;
+                height: 52px;
+                border-radius: 16px;
+                background: rgba(139, 92, 246, 0.15);
+                border: 1px solid rgba(139, 92, 246, 0.3);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                color: #c4b5fd;
+                margin: 0 auto 12px;
             }
             .modal-header h3 {
-                font-size: 22px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 1.45rem;
                 font-weight: 700;
                 margin-bottom: 6px;
             }
             .modal-header p {
-                font-size: 13px;
-                color: rgba(255,255,255,0.7);
+                font-size: 0.88rem;
+                color: #94a3b8;
                 line-height: 1.5;
             }
 
@@ -214,38 +272,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 text-align: left;
             }
             .input-group label {
-                font-size: 12px;
+                font-size: 0.8rem;
                 font-weight: 600;
-                color: rgba(255, 255, 255, 0.85);
+                color: #cbd5e1;
                 letter-spacing: 0.5px;
             }
             .quick-message-form input,
             .quick-message-form textarea {
                 width: 100%;
-                background: rgba(0, 0, 0, 0.3);
-                border: 1px solid rgba(255, 255, 255, 0.12);
-                padding: 12px 14px;
-                border-radius: 10px;
+                background: rgba(5, 8, 15, 0.6);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 12px 16px;
+                border-radius: 12px;
                 color: #fff;
-                font-size: 13px;
+                font-size: 0.92rem;
                 outline: none;
                 font-family: inherit;
                 transition: 0.2s ease;
             }
             .quick-message-form input:focus,
             .quick-message-form textarea:focus {
-                border-color: #38bdf8;
-                background: rgba(0, 0, 0, 0.5);
-                box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+                border-color: #8b5cf6;
+                background: rgba(5, 8, 15, 0.85);
+                box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
             }
             .send-msg-btn {
-                margin-top: 6px;
-                background: linear-gradient(135deg, #0284c7, #2563eb);
+                margin-top: 8px;
+                background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
                 color: #fff;
                 border: none;
-                padding: 13px;
-                border-radius: 10px;
-                font-size: 14px;
+                padding: 14px;
+                border-radius: 12px;
+                font-size: 0.95rem;
                 font-weight: 600;
                 cursor: pointer;
                 transition: 0.2s ease;
@@ -253,24 +311,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 align-items: center;
                 justify-content: center;
                 gap: 8px;
+                box-shadow: 0 4px 15px rgba(139, 92, 246, 0.35);
             }
             .send-msg-btn:hover {
-                background: linear-gradient(135deg, #0369a1, #1d4ed8);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
             }
             .send-msg-btn:disabled {
                 opacity: 0.7;
                 cursor: not-allowed;
             }
 
-            /* Success View */
+            /* Success State */
             .send-success-box {
                 text-align: center;
                 padding: 20px 10px;
-                animation: fadeIn 0.3s ease;
-            }
-            @keyframes fadeIn {
-                from { opacity: 0; transform: translateY(10px); }
-                to { opacity: 1; transform: translateY(0); }
             }
             .success-icon {
                 font-size: 52px;
@@ -278,34 +333,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 margin-bottom: 12px;
             }
             .send-success-box h4 {
-                font-size: 20px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 1.35rem;
                 font-weight: 700;
                 color: #fff;
                 margin-bottom: 8px;
             }
             .send-success-box p {
-                font-size: 13px;
-                color: rgba(255, 255, 255, 0.78);
+                font-size: 0.9rem;
+                color: #94a3b8;
                 line-height: 1.6;
-                margin-bottom: 20px;
+                margin-bottom: 24px;
             }
             .send-another-btn {
-                background: rgba(255, 255, 255, 0.08);
+                background: rgba(255, 255, 255, 0.05);
                 color: #38bdf8;
                 border: 1px solid rgba(56, 189, 248, 0.3);
-                padding: 10px 20px;
-                border-radius: 10px;
-                font-size: 13px;
+                padding: 11px 22px;
+                border-radius: 999px;
+                font-size: 0.88rem;
                 font-weight: 600;
                 cursor: pointer;
                 transition: 0.2s;
                 display: inline-flex;
                 align-items: center;
-                gap: 6px;
+                gap: 8px;
             }
             .send-another-btn:hover {
                 background: rgba(56, 189, 248, 0.15);
                 border-color: #38bdf8;
+                transform: translateY(-2px);
             }
         `;
         document.head.appendChild(style);
@@ -313,7 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createModalAndToast();
 
-    // 5. TOAST NOTIFICATION FUNCTION
+    // 6. TOAST HELPER
     const showToast = (msg) => {
         const toast = document.getElementById('portfolio-toast');
         const toastMsg = document.getElementById('toast-message');
@@ -322,21 +379,30 @@ document.addEventListener('DOMContentLoaded', () => {
             toast.classList.add('show');
             setTimeout(() => {
                 toast.classList.remove('show');
-            }, 3200);
+            }, 3500);
         }
     };
 
-    // 6. MODAL EVENT LISTENERS & IN-PAGE EMAIL INBOX DELIVERY
+    // 7. MODAL CONTROLS & FORM SUBMISSION
     const modal = document.getElementById('contact-modal');
     const modalClose = document.getElementById('modal-close');
 
     const openContactModal = (e) => {
         if (e) e.preventDefault();
-        if (modal) modal.classList.add('active');
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                document.getElementById('msg-name')?.focus();
+            }, 100);
+        }
     };
 
     const closeContactModal = () => {
-        if (modal) modal.classList.remove('active');
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     };
 
     if (modalClose) modalClose.addEventListener('click', closeContactModal);
@@ -346,13 +412,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal?.classList.contains('active')) {
+            closeContactModal();
+        }
+    });
+
     const resetQuickForm = () => {
         const formContainer = document.getElementById('quick-message-form');
         if (formContainer) {
             formContainer.innerHTML = `
                 <div class="input-group">
                     <label for="msg-name">Your Name</label>
-                    <input type="text" id="msg-name" placeholder="Enter your name" required>
+                    <input type="text" id="msg-name" placeholder="Harrison Developer" required>
                 </div>
                 <div class="input-group">
                     <label for="msg-email">Your Email</label>
@@ -360,7 +433,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="input-group">
                     <label for="msg-text">Your Message</label>
-                    <textarea id="msg-text" rows="4" placeholder="Write your message here..." required></textarea>
+                    <textarea id="msg-text" rows="4" placeholder="Tell me about your project or inquiry..." required></textarea>
                 </div>
                 <button type="submit" class="send-msg-btn">
                     <i class="ri-send-plane-fill"></i> Send Message
@@ -387,13 +460,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!name || !email || !msg) return;
 
-            // Disable button and show spinner
+            // Loading state
             if (submitBtn) {
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = `<i class="ri-loader-4-line spin-icon"></i> Sending Message...`;
             }
 
-            // Post to FormSubmit API to deliver directly to Harrison's Gmail inbox
             fetch(`https://formsubmit.co/ajax/${EMAIL}`, {
                 method: "POST",
                 headers: { 
@@ -404,18 +476,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     name: name,
                     email: email,
                     message: msg,
-                    _subject: `New Portfolio Message from ${name}`
+                    _subject: `New Portfolio Contact from ${name}`
                 })
             }).then(() => {
-                showToast('Message delivered to Harrison!');
+                showToast('Message delivered successfully!');
             }).catch(() => {
                 showToast('Message sent!');
             }).finally(() => {
-                // In-page success screen
                 quickForm.innerHTML = `
                     <div class="send-success-box">
                         <div class="success-icon"><i class="ri-checkbox-circle-fill"></i></div>
-                        <h4>Message Sent Directly!</h4>
+                        <h4>Message Sent!</h4>
                         <p>Thank you, <strong>${escapeHtml(name)}</strong>. Your message has been sent directly to Harrison's Gmail inbox.</p>
                         <button id="send-another-btn" class="send-another-btn" type="button">
                             <i class="ri-refresh-line"></i> Send Another Message
@@ -432,36 +503,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     attachQuickFormSubmit();
 
-    // Attach Modal trigger to all Contact links & Gmail buttons
-    const contactElements = document.querySelectorAll('a[href^="mailto:"], .email-link, .about-btn');
-    contactElements.forEach(el => {
+    // Attach Modal trigger to all relevant buttons/links
+    document.querySelectorAll('.email-trigger, a[href^="mailto:"]').forEach(el => {
         el.addEventListener('click', openContactModal);
     });
 
-    // 7. FULLSCREEN LIGHTBOX FOR HERO IMAGE
-    const fullscreenBtn = document.querySelector('.fullscreen');
-    if (fullscreenBtn) {
-        fullscreenBtn.addEventListener('click', () => {
-            const heroImg = document.querySelector('.hero-image img, .about-image img');
-            const imgSrc = heroImg ? heroImg.src : 'images/profile.png';
+    // 8. FULLSCREEN IMAGE LIGHTBOX
+    document.querySelectorAll('.fullscreen-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const imgEl = trigger.querySelector('img');
+            const imgSrc = imgEl ? imgEl.src : 'images/profile.png';
 
             const lightbox = document.createElement('div');
             lightbox.className = 'contact-modal-overlay active';
             lightbox.style.zIndex = '10001';
             lightbox.innerHTML = `
-                <div style="position:relative; max-width:90vw; max-height:90vh;">
-                    <button id="lb-close" style="position:absolute; top:-40px; right:0; background:transparent; border:none; color:#fff; font-size:32px; cursor:pointer;">&times;</button>
-                    <img src="${imgSrc}" style="max-width:100%; max-height:85vh; border-radius:16px; box-shadow:0 20px 50px rgba(0,0,0,0.8);">
+                <div style="position:relative; max-width:92vw; max-height:90vh; text-align:center;">
+                    <button id="lb-close" style="position:absolute; top:-45px; right:0; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); width:38px; height:38px; border-radius:50%; color:#fff; font-size:22px; cursor:pointer; display:flex; align-items:center; justify-content:center;">
+                        <i class="ri-close-line"></i>
+                    </button>
+                    <img src="${imgSrc}" style="max-width:100%; max-height:85vh; border-radius:20px; box-shadow:0 30px 80px rgba(0,0,0,0.9); border:1px solid rgba(255,255,255,0.15);">
                 </div>
             `;
             document.body.appendChild(lightbox);
+            document.body.style.overflow = 'hidden';
 
-            lightbox.querySelector('#lb-close').addEventListener('click', () => {
+            const closeLb = () => {
                 lightbox.remove();
-            });
+                document.body.style.overflow = '';
+            };
+
+            lightbox.querySelector('#lb-close')?.addEventListener('click', closeLb);
             lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) lightbox.remove();
+                if (e.target === lightbox) closeLb();
             });
         });
-    }
+    });
 });
